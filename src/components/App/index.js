@@ -18,7 +18,7 @@ function App() {
    return (
       <div className="App">
          {/* TODO: call handleClick when button clicked */}
-         <button>Get Random Pokemon</button>
+         <button onClick={handleClick}>Get Random Pokemon</button>
          {/* TODO: hand down id as a prop */}
          <PokemonViewer id={id} />
       </div>

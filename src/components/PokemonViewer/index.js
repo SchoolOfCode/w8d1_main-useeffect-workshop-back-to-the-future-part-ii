@@ -12,7 +12,7 @@ function PokemonViewer({ id }) {
    // this will change pokemon state
    //useEffect runs when id is changed.
    useEffect(() => {
-      console.log("working");
+      fetchPokemon(id);
       async function fetchPokemon(id) {
          const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
          const response = await data.json();
@@ -20,11 +20,19 @@ function PokemonViewer({ id }) {
       }
    }, [id]);
 
-   return (
+   console.log(pokemon);
+
+   return pokemon ? (
       <div className="pokemon-viewer">
          <p>display pokemon with id {id} here!</p>
+         <p className="pokemon">{pokemon.name}</p>
       </div>
+   ) : (
+      <></>
    );
 }
+// {console.log(pokemon.sprites.front_default)}
+
+// <img src={pokemon.sprites.front_default} alt="pokemon" />
 
 export default PokemonViewer;
